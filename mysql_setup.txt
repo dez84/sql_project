@@ -1,0 +1,45 @@
+1.	Install MySQL:
+If MySQL is not already installed, you can do so with this command:
+
+sudo apt update
+sudo apt install mysql-server
+
+
+	2.	Start MySQL:
+After installation, start the MySQL service:
+
+sudo systemctl start mysql
+
+
+	3.	Secure MySQL Installation (Optional but recommended):
+Run the MySQL security script to improve security:
+
+sudo mysql_secure_installation
+
+
+	4.	Access MySQL:
+You can access the MySQL shell with this command:
+
+sudo mysql
+
+
+	5.	Create a Database:
+Once in the MySQL shell, you can create a database using:
+
+CREATE DATABASE your_database_name;
+
+
+	6.	Create a MySQL User:
+Create a user and grant them privileges on the database:
+
+CREATE USER 'your_username'@'localhost' IDENTIFIED BY 'your_password'; GRANT ALL PRIVILEGES ON your_database_name.* TO 'your_username'@'localhost'; FLUSH PRIVILEGES;
+
+
+	7.	Exit MySQL Shell:
+To exit the MySQL shell, type:
+
+EXIT;
+
+
+
+That’s it! You’ve set up a MySQL database on Ubuntu. Make sure to replace your_database_name, your_username, and your_password with your preferred values.
