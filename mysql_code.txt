@@ -1,0 +1,66 @@
+Create a Database and Sample Tables:
+
+CREATE DATABASE bookstore;
+
+USE bookstore;
+
+-- Create Authors Table
+CREATE TABLE authors (
+    author_id INT AUTO_INCREMENT PRIMARY KEY,
+    author_name VARCHAR(255) NOT NULL
+);
+
+-- Create Books Table
+CREATE TABLE books (
+    book_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author_id INT,
+    price DECIMAL(10, 2) NOT NULL,
+    stock_quantity INT NOT NULL,
+    FOREIGN KEY (author_id) REFERENCES authors(author_id) );
+
+-- Create Customers Table
+CREATE TABLE customers (
+    customer_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE
+);
+
+-- Create Orders Table
+CREATE TABLE orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT,
+    order_date DATE NOT NULL,
+    total_amount DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id) );
+
+-- Insert Sample Data into Authors Table INSERT INTO authors (author_name) VALUES
+    ('Author 1'),
+    ('Author 2'),
+    ('Author 3');
+
+-- Insert Sample Data into Books Table
+INSERT INTO books (title, author_id, price, stock_quantity) VALUES
+    ('Book 1', 1, 19.99, 100),
+    ('Book 2', 2, 14.99, 50),
+    ('Book 3', 3, 24.99, 75);
+
+-- Insert Sample Data into Customers Table INSERT INTO customers (customer_name, email) VALUES
+    ('Customer 1', 'customer1@example.com'),
+    ('Customer 2', 'customer2@example.com');
+
+-- Insert Sample Data into Orders Table
+INSERT INTO orders (customer_id, order_date, total_amount) VALUES
+    (1, '2023-09-01', 39.98),
+    (2, '2023-09-02', 74.98);
+
+
+	5.	Exit MySQL Shell:
+To exit the MySQL shell, type:
+
+EXIT;
+
+
+
+This example provides you with the SQL code to create a basic database structure for an online bookstore. You can use this as a foundation and build upon it by adding more tables, queries, and code to implement specific features as outlined in your project plan.
+
